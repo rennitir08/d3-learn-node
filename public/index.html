@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Todos</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="text/javascript" src="https://cdn.polyfill.io/v2/polyfill.min.js?features=es6,fetch,Array.prototype.includes"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="bulma.css" />
+    <link rel="stylesheet" href="global.css" />
+</head>
+<body>
+    <div class="columns is-mobile is-pulled-right">
+        <div class="column is-half">
+            <img class="is-pulled-right" src="thingstodo.png" alt="image"/>
+            </div>
+            <div class="column is-half">
+            <img src="todo.png" alt="image"/>
+        </div>
+    </div>
+<!--content-->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-5 col-sm-offset-3">
+                <div class="form-group">
+                    <label for="sel1">
+                        Select a category:
+                    </label>
+                        <select class="form-control" id="category">
+                            <option>Important !</option>
+                            <option>Personal</option>
+                            <option>School</option>
+                            <option>Work</option>
+                            <option>Other</option>
+                        </select>
+                    <br/>
+                    <label for="sel1">Due Date:</label>
+                    <input id="dueDate" class="input" type="text" placeholder="Enter Due Date...">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-5 col-sm-offset-3">
+                <label for="sel1">Task:</label>
+                    <input id="todoItem" class="input" type="text" placeholder="Type a task description...">
+                <br/>
+                <br/>
+                    <button id="todoButton" type="text" class="btn btn-primary btn-block">Add Task</button>
+            </div>
+        </div>
+        <br/>
+        <br/>
+        <div class="row">
+            <div class="col-sm-7 col-sm-offset-2">
+                <ul id="todos" class="list-group">
+                    <!--todo list items will go here-->
+                </ul>
+            </div>
+        </div>
+     </div>
+            
+
+    <script src="js/todos.js"></script>
+</body>
+</html>

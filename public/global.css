@@ -1,0 +1,21 @@
+* {
+    box-sizing: border-box;
+}
+img {
+    width: 100%;
+}
+body {
+    background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/weather.png");
+    background-size: cover;
+}
+
+.list-style {
+    background-color: white;
+    box-shadow: 10px 10px 5px #888888;
+}
+.badge-category {
+    background-color: deepskyblue;
+}
+.badge-due-date {
+    background-color: rebeccapurple;
+}
