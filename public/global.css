@@ -19,3 +19,18 @@ body {
 .badge-due-date {
     background-color: rebeccapurple;
 }
+.red {
+    background-color: red;
+}
+.orange {
+    background-color: orange;
+}
+.yellow {
+    background-color: yellow;
+}
+.green {
+    background-color: green;
+}
+.purple {
+    background-color: purple;
+}

@@ -6,35 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="text/javascript" src="https://cdn.polyfill.io/v2/polyfill.min.js?features=es6,fetch,Array.prototype.includes"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="bulma.css" />
+    <link rel="stylesheet" href="pikaday.css" />
     <link rel="stylesheet" href="global.css" />
 </head>
 <body>
-    <div class="columns is-mobile is-pulled-right">
-        <div class="column is-half">
-            <img class="is-pulled-right" src="thingstodo.png" alt="image"/>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <img src="thingstodo.png" alt="image"/>
             </div>
-            <div class="column is-half">
-            <img src="todo.png" alt="image"/>
+            <div class="col-sm-6">
+                <img src="todo.png" alt="image"/>
+            </div>
         </div>
     </div>
+    <br/>
+    <br/>
 <!--content-->
     <div class="container">
         <div class="row">
             <div class="col-sm-5 col-sm-offset-3">
                 <div class="form-group">
-                    <label for="sel1">
+                    <label for="category">
                         Select a category:
                     </label>
                         <select class="form-control" id="category">
-                            <option>Important !</option>
-                            <option>Personal</option>
-                            <option>School</option>
-                            <option>Work</option>
-                            <option>Other</option>
+                            <option id="important" value="important">Important</option>
+                            <option id="personal" value="personal">Personal</option>
+                            <option id="school" value="school">School</option>
+                            <option id="work" value="work">Work</option>
+                            <option id="other" value="other">Other</option>
                         </select>
                     <br/>
-                    <label for="sel1">Due Date:</label>
+                    <label for="dueDate">Due Date:</label>
                     <input id="dueDate" class="input" type="text" placeholder="Enter Due Date...">
                 </div>
             </div>
@@ -59,7 +63,8 @@
         </div>
      </div>
             
-
+     <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
+     <script src="js/pikaday.js"></script>
     <script src="js/todos.js"></script>
 </body>
 </html>
