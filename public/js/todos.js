@@ -120,7 +120,7 @@ function showTodo(todo) {
                     <div class="checkbox">
                         <label>
                             <input type="checkbox" data-id="${todo.id}" ${todo.completed === 'yes' ? 'checked' : ''}/>
-                            ${todo.todo} 
+                            <span class="${todo.completed === 'yes' ? 'done' : ''}">${todo.todo}</span>
                         </label>
                             <span class="badge color-category ${colorCategory}">${todo.category.toUpperCase()}</span>
                             <span class="badge badge-category">${moment(todo.due_date).format('MM/DD/YYYY')} </span>
@@ -129,4 +129,6 @@ function showTodo(todo) {
 
     todosContainer.innerHTML = todo + todosContainer.innerHTML;
 }
+
+
 

@@ -34,3 +34,6 @@ body {
 .purple {
     background-color: purple;
 }
+.done {
+    text-decoration: line-through;
+}
