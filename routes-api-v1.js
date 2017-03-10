@@ -28,12 +28,23 @@ module.exports.setup = (router, uploads, knex) => {
             res.json(data[0])
         })
     })
-    router.get('todos/:todoId/complete', function(req, res) {
+
+    router.get('/todos/:todoId/complete', function(req, res) {
         let update = {
             completed: 'yes'
         }
 
-        knex.update(todo).table('todos').where('id', '=', request.params.todoId).then(function(data) {
+        knex.update(update).table('todos').where('id', '=', req.params.todoId).then(function(data) {
+             res.json(true)
+        }) 
+    })
+    
+     router.get('/todos/:todoId/incomplete', function(req, res) {
+        let update = {
+            completed: 'no'
+        }
+
+        knex.update(update).table('todos').where('id', '=', req.params.todoId).then(function(data) {
              res.json(true)
         }) 
     })

@@ -31,7 +31,7 @@ function handleKeyPressOnTodoItem(e) {
 
 function handleClickOnCheckBox(e) {
     if (e.target.type === 'checkbox') {
-        toggleTodoComplete(e.target.getAttribute('data-id'), e.target.checked)
+        toggleTodoComplete(e.target.dataset.id, e.target.checked)
     }
 }
 
@@ -39,10 +39,12 @@ function toggleTodoComplete(todoId, isComplete) {
 
     if(isComplete) {
         fetch('/api/v1/todos/' + todoId + '/complete')
+        .then(getTodos)
     }
 
     else {
         fetch('/api/v1/todos/' + todoId + '/incomplete')
+        .then(getTodos) 
     }
 }
 
@@ -94,34 +96,37 @@ function loopTodos(todos) {
 }
 
 function showTodo(todo) {
+    var colorCategory
+
+    switch(todo.category) {
+        case 'important':
+            colorCategory = 'red';
+            break;
+        case 'personal':
+            colorCategory = 'orange';
+            break;
+        case 'school':
+            colorCategory = 'yellow';
+            break;
+         case 'work':
+            colorCategory = 'green';
+            break;
+         case 'other':
+            colorCategory = 'blue';
+            break;
+    }
+
     var todo = `<li class="list-group-item">
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox" data-id="${todo.id}"/>
+                            <input type="checkbox" data-id="${todo.id}" ${todo.completed === 'yes' ? 'checked' : ''}/>
                             ${todo.todo} 
                         </label>
-                            <span class="badge color-category" id="cat">${todo.category.toUpperCase()}</span>
+                            <span class="badge color-category ${colorCategory}">${todo.category.toUpperCase()}</span>
                             <span class="badge badge-category">${moment(todo.due_date).format('MM/DD/YYYY')} </span>
                     </div>
                 </li>`;
+
     todosContainer.innerHTML = todo + todosContainer.innerHTML;
-
-
-    if (document.querySelector('#cat').innerHTML === 'IMPORTANT') {
-        document.querySelector('#cat').classList.add('red')
-    }
-    else if (document.querySelector('#cat').innerHTML === 'PERSONAL') {
-    document.querySelector('#cat').classList.add('orange')
-    }
-    else if (document.querySelector('#cat').innerHTML === 'SCHOOL') {
-    document.querySelector('#cat').classList.add('yellow')
-    }
-    else if (document.querySelector('#cat').innerHTML === 'WORK') {
-    document.querySelector('#cat').classList.add('green')
-    }
-    else if (document.querySelector('#cat').innerHTML === 'OTHER') {
-    document.querySelector('#cat').classList.add('blue')
-    }
-    
 }
 
